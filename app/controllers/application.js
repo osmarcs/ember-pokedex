@@ -6,15 +6,15 @@ export default Controller.extend({
     this.pkmList = [
       {
         name: 'Pikachu',
-        number: '025'
+        number: 25
       },
       {
         name: 'Chikorita',
-        number: '152'
+        number: 152
       },
       {
         name: 'Blaziken',
-        number: '257'
+        number: 257
       }
     ]
   }
