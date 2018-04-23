@@ -1,5 +1,17 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<img class="pokeball-back" id="pokeballBack"
+     src="//hanashiro.github.io/pokedex/images/pokeball.svg" />
+
+{{ input id="pokeFilter" placeholder="Search" value=pkmFilter }}
+
+<ul class="poke-list" id="pokeList" >
+  {{#each pkmList as |pokemon|}}
+    <li class="poke-list-item" >
+      <a href="#">
+        <img src="//serebii.net/pokedex-xy/icon/{{ pokemon.number}}.png" />
+        <span>{{pokemon.number}} - {{pokemon.name}}</span>
+      </a>
+    </li>
+  {{/each}}
+</ul>
 
 {{outlet}}
