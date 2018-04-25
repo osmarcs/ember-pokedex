@@ -1,28 +1,16 @@
 import Controller from '@ember/controller';
 import  { computed } from '@ember/object';
+import { inject } from '@ember/service';
 
 export default Controller.extend({
   pkmFilter: '',
-  pkmList: computed('list', 'pkmFilter', function() {
-    const pkmList = this.get('list');
+  pkmList: computed('pokeService.list', 'pkmFilter', function() {
+    const pkmList = this.get('pokeService').get('list');
     const pkmFilter = this.get('pkmFilter').toLowerCase();
-    return pkmList.filter(pkm => pkm.name.includes(pkmFilter));
+    return pkmList && pkmList.length ? pkmList.filter(pkm => pkm.name.includes(pkmFilter)) : [];
   }),
+  pokeService: inject(),
   init() {
     this._super(...arguments);
-    this.list = [
-      {
-        name: 'pikachu',
-        number: 25
-      },
-      {
-        name: 'chikorita',
-        number: 152
-      },
-      {
-        name: 'blaziken',
-        number: 257
-      }
-    ]
   }
 });

@@ -1,22 +1,18 @@
 import Controller from '@ember/controller';
+import { inject } from '@ember/service';
 
 export default Controller.extend({
   number: '',
+  pokeService: inject(),
   init() {
     this.queryParams = ['number'];
-    this.pokemon = {
-      name: 'pikachu',
-      types: [
-        {
-          name: 'electric'
-        }
-      ],
-      attack: 100,
-      defense: 100,
-      sp_atk: 100,
-      sp_def: 100,
-      speed: 100,
-    };
-    this._super(...arguments)
+    this.pokemon = {};
+    this._super(...arguments);
+  },
+  getPokemon() {
+    this.get('pokeService').getPokemon()
+      .then(pkm => {
+        this.set('pokemon', pkm);
+      })
   }
 });
