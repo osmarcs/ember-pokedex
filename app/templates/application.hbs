@@ -1,12 +1,4 @@
 <img class="pokeball-back" id="pokeballBack"
      src="//hanashiro.github.io/pokedex/images/pokeball.svg" />
 
-{{ input id="pokeFilter" placeholder="Search" value=pkmFilter }}
-
-<ul class="poke-list" id="pokeList" >
-  {{#each pkmList as |pokemon|}}
-    {{poke-list pokemon=pokemon}}
-  {{/each}}
-</ul>
-
 {{outlet}}
