@@ -10,7 +10,7 @@ export default Controller.extend({
     this._super(...arguments);
   },
   getPokemon() {
-    this.get('pokeService').getPokemon()
+    this.get('pokeService').getPokemon(this.get('number'))
       .then(pkm => {
         this.set('pokemon', pkm);
       })
